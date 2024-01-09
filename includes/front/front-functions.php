@@ -7,7 +7,7 @@ function load_resources()
     wp_enqueue_style('mi-plugin-estilos', plugin_dir_url(__FILE__) . 'assets/css/style.css');
     wp_enqueue_script('mi-plugin-script', plugin_dir_url(__FILE__) . 'assets/js/scripts.js');
 }
-add_action('wp_enqueue_scripts', 'load_resources');
+
 
 
 // Definimos funciones para imprimir cada elemento del front-end en el back-office
@@ -88,3 +88,4 @@ function display_uploaded_files()
     echo '</div>';
 }
 
+add_action('wp_enqueue_scripts', 'load_resources');
