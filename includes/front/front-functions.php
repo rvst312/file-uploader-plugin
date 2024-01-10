@@ -1,35 +1,29 @@
 <?php
 
 include_once(plugin_dir_path(__FILE__) . '../admin/admin-functions.php');
-// Include css and javaScript 
-function load_resources()
-{
-    wp_enqueue_style('mi-plugin-estilos', plugin_dir_url(__FILE__) . 'assets/css/style.css');
-    wp_enqueue_script('mi-plugin-script', plugin_dir_url(__FILE__) . 'assets/js/scripts.js');
-}
-
 
 
 // Definimos funciones para imprimir cada elemento del front-end en el back-office
-function view_upload_form() {
+function view_upload_form($path)
+{
     ?>
     <div class="wrap">
         <h1>Subir Archivos</h1>
-		<div class="form-wrapper">
+        <div class="form-wrapper">
             <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post" enctype="multipart/form-data">
-               <input type="hidden" name="action" value="process_files">
-               <input type="file" name="archivo">
-               <input type="submit" value="Subir Archivo"  class="post-file">
+                <input type="hidden" name="action" value="process_files">
+                <input type="hidden" name="ruta" value="<?php echo esc_attr($path); ?>">
+                <input type="file" name="archivo">
+                <input type="submit" value="Subir Archivo" class="post-file">
             </form>
-		</div>
+        </div>
     </div>
     <?php
 }
 
 // Mostrar el contenido del directorio de archivos subidos
-function display_uploaded_files()
+function display_uploaded_files($path)
 {
-    $path = 'examenes';
     $upload_directory = wp_upload_dir()['basedir'] . '/' . $path;
 
     echo '<div class="uploaded-files">';
@@ -88,4 +82,3 @@ function display_uploaded_files()
     echo '</div>';
 }
 
-add_action('wp_enqueue_scripts', 'load_resources');

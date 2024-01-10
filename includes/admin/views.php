@@ -4,7 +4,7 @@ include_once(plugin_dir_path(__FILE__) . '../front/front-functions.php');
 
 function add_menu_item() {
     add_menu_page(
-        'Subir Exámenes',
+        'Subir Exámenes 2',
         'Subir Exámenes', 
         'edit_pages', //'manage_options'
         'formulario_carga_archivos',
@@ -16,7 +16,7 @@ function add_menu_item() {
 add_action('admin_menu', 'add_menu_item');
 
 function RenderInterface() {
-    view_upload_form();
-    display_uploaded_files();
+    view_upload_form('pdf'); 
+    display_uploaded_files('pdf'); // Recibe un parametro como path para cambiar el directorio que mostrara la vista
 }
 
