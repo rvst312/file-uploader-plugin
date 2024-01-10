@@ -32,7 +32,12 @@ function display_uploaded_files($path)
     // Verificar si el directorio existe
     if (file_exists($upload_directory) && is_dir($upload_directory)) {
         $files = scandir($upload_directory); // Obtener la lista de archivos en el directorio
-        $permit_extensions = array('pdf', 'png', 'jpeg', 'jpg'); // Tipos de archivos permitidos  
+        $permit_extensions = array( // Tipos de archivos permitidos
+            'pdf', 
+            'png',
+            'jpeg',
+            'jpg',
+        );   
 
         // Mostrar la lista de archivos
         if ($files) {
