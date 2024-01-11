@@ -22,7 +22,7 @@ function styles_admin() {
 add_action('admin_enqueue_scripts', 'styles_admin');
 
 function scripts_admin() {
-    wp_enqueue_script('scripts', plugins_url('/assets/js/scripts.js', __FILE__), array('jquery'), '1.0', true);
+    wp_enqueue_script('scripts', plugins_url('/assets/js/scripts.js', __FILE__), array(), '1.0', true);
 }
 add_action('admin_enqueue_scripts', 'scripts_admin');
 
