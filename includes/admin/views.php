@@ -14,7 +14,10 @@ function add_menu_item()
         20
     );
 }
+
 add_action('admin_menu', 'add_menu_item');
+add_action('wp_ajax_process_click', 'change_view');
+add_action('wp_ajax_nopriv_process_click', 'change_view');
 
 function RenderInterface()
 {
@@ -48,9 +51,7 @@ function RenderInterface()
         } else {
             echo 'No se recibió ningún valor. Vuelve a intentarlo';
         }
-        add_action('wp_ajax_process_click', 'change_view');
-        add_action('wp_ajax_nopriv_process_click', 'change_view');
-        
+
         wp_die();
     }
 }
