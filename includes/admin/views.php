@@ -20,9 +20,6 @@ function RenderInterface()
 {
     display_folders();
 
-    add_action('wp_ajax_process_click', 'change_view');
-    add_action('wp_ajax_nopriv_process_click', 'change_view');
-
     function change_view()
     {
 
@@ -51,6 +48,9 @@ function RenderInterface()
         } else {
             echo 'No se recibió ningún valor. Vuelve a intentarlo';
         }
+        add_action('wp_ajax_process_click', 'change_view');
+        add_action('wp_ajax_nopriv_process_click', 'change_view');
+        
         wp_die();
     }
 }
