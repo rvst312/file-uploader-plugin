@@ -26,15 +26,6 @@ function process_files()
         add_filter('upload_dir', $upload_path);
         $uploadedfile = $_FILES['archivo'];
 
-        //$upload_dir = wp_upload_dir();
-        //$custom_upload_dir = $upload_dir['basedir'] . '/examenes';
-        //
-        //$upload_overrides = array(
-        //    'test_form' => false,
-        //    'upload_dir' => $custom_upload_dir,
-        //    'unique_filename_callback' => null
-        //);
-
         // Obtener la extensión del archivo
         $extension_archivo = pathinfo($_FILES['archivo']['name'], PATHINFO_EXTENSION);
 
