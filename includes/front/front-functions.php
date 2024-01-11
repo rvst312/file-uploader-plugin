@@ -24,38 +24,16 @@ function view_upload_form($path)
 function display_folders()
 {
     ?>
-    <button type="button" class="folders" data-valor="oro">
-        ORO
-    </button>
-    <button type="button" class="folders" data-valor="reloj">
-        RELOJ
-    </button>
-    <button type="button" class="folders" data-valor="diamante">
-        DIAMANTE
-    </button>
 
-    <script>
-        // Lógica de manejo de las carpetas en el cliente. Se envia un valor al servidor en cada petición, el cual se usa de parametro
-        document.addEventListener('DOMContentLoaded', function () {
+    <div style="display:flex">
+        <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="action" value="RenderInterface">
+            <input class="dowload-button" type="submit" name="button" value="ORO">
+            <input class="dowload-button" type="submit" name="button" value="RELOJ">
+            <input class="dowload-button" type="submit" name="button" value="DIAMANTES">
+        </form>
+    </div>
 
-            const folders = document.getElementsByClassName('folders');
-
-            for (let i = 0; i < folders.length; i++) {
-
-                folders[i].addEventListener('click', function () {
-
-                    let value = this.getAttribute('data-valor');
-                    console.log('ready click en: ' + value);
-                    // Realiza una solicitud AJAX al servidor
-                    let xhr = new XMLHttpRequest();
-                    xhr.open('POST', '<?php echo admin_url('admin-ajax.php'); ?>', true);
-                    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-                    xhr.send('action=process_click&value=' + encodeURIComponent(value));
-                });
-            }
-        });
-
-    </script>
     <?php
 }
 

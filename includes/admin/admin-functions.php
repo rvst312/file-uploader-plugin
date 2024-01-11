@@ -56,7 +56,35 @@ function process_files()
         } else {
             echo "Por favor selecciona un archivo válido. Formatos permitidos: PDF, PNG, JPG, GIF, JPEG";
         }
+    } else {
+        echo 'Error: No corresponde una ruta a la vista';
     }
 }
 
+function process_views()
+{
+
+    $value_path = sanitize_text_field($_POST['button']);
+
+
+    if ($value_path == 'oro') {
+
+        view_upload_form('oro');
+        display_uploaded_files('oro');
+        wp_redirect($_SERVER['HTTP_REFERER']);
+
+    } else if ($value_path == 'reloj') {
+
+        view_upload_form('pdf');
+        display_uploaded_files('pdf');
+        wp_redirect($_SERVER['HTTP_REFERER']);
+
+    } else if ($value_path == 'diamantes') {
+
+        view_upload_form('diamantes');
+        display_uploaded_files('diamantes');
+        wp_redirect($_SERVER['HTTP_REFERER']);
+    }
+
+}
 
