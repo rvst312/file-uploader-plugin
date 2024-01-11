@@ -43,9 +43,9 @@ function display_folders()
             for (let i = 0; i < folders.length; i++) {
 
                 folders[i].addEventListener('click', function () {
-                    console.log('ready click en: ' + folders[i].getAttribute('data-valor'));
 
                     let value = this.getAttribute('data-valor');
+                    console.log('ready click en: ' + value);
                     // Realiza una solicitud AJAX al servidor
                     let xhr = new XMLHttpRequest();
                     xhr.open('POST', '<?php echo admin_url('admin-ajax.php'); ?>', true);
