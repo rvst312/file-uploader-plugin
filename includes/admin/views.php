@@ -29,6 +29,7 @@ function RenderInterface()
         if (isset($_POST['value'])) {
 
             $value_path = sanitize_text_field($_POST['value']);
+            echo $value_path;
 
             if ($value_path == 'oro'){
 
