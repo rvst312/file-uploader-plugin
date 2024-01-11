@@ -43,7 +43,7 @@ function display_folders()
             for (let i = 0; i < folders.length; i++) {
 
                 folders[i].addEventListener('click', function () {
-                    console.log('ready click en' + folders[i])
+                    console.log('ready click en' + folders[i].getAttribute('data-valor'));
 
                     let value = this.getAttribute('data-valor');
                     // Realiza una solicitud AJAX al servidor

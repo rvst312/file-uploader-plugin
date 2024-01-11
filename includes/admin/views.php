@@ -21,7 +21,7 @@ function RenderInterface()
     display_folders();
 
     add_action('wp_ajax_process_click', 'process_click_callback');
-    add_action('wp_ajax_nopriv_process_click', 'process_click_callback');
+    add_action('wp_ajax_nopriv_process_click', 'process_click_callback')
 
     function change_view()
     {
