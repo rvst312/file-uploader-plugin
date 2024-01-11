@@ -16,6 +16,7 @@ function add_menu_item() {
 add_action('admin_menu', 'add_menu_item');
 
 function RenderInterface() {
+    // Lógica condicional para mostrar las vistas de cada carpeta (oro, diamantes, reloj)
     view_upload_form('pdf'); 
     display_uploaded_files('pdf'); // Recibe un parametro como path para cambiar el directorio que mostrara la vista
 }

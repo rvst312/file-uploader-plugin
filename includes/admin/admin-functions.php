@@ -39,7 +39,13 @@ function process_files()
         $extension_archivo = pathinfo($_FILES['archivo']['name'], PATHINFO_EXTENSION);
 
         // Definir extensiones permitidas
-        $extensiones_permitidas = array('pdf', 'png', 'jpg', 'gif', 'jpeg');
+        $extensiones_permitidas = array(
+            'pdf',
+            'png',
+            'jpg',
+            'gif',
+            'jpeg'
+        );
 
         // Verificar si la extensión del archivo está permitida
         if (in_array(strtolower($extension_archivo), $extensiones_permitidas)) {
