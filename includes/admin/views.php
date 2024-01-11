@@ -30,19 +30,19 @@ function RenderInterface()
 
             $value_path = sanitize_text_field($_POST['value']);
 
-            if ($value_path === 'oro'){
+            if ($value_path == 'oro'){
 
                 view_upload_form('oro');
                 display_uploaded_files('oro'); 
             }
 
-            else if ($value_path === 'reloj'){
+            else if ($value_path == 'reloj'){
 
                 view_upload_form('pdf');
                 display_uploaded_files('pdf'); 
             }
 
-            else if ($value_path === 'diamantes') {
+            else if ($value_path == 'diamantes') {
 
                 view_upload_form('diamantes');
                 display_uploaded_files('diamantes'); 
