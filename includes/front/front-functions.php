@@ -21,6 +21,21 @@ function view_upload_form($path)
     <?php
 }
 
+function display_folders()
+{
+    ?>
+    <button type="button" class="folders" data-valor="oro">
+        ORO
+    </button>
+    <button type="button" class="folders" data-valor="reloj">
+        RELOJ
+    </button>
+    <button type="button" class="folders" data-valor="diamante">
+        DIAMANTE
+    </button>
+    <?php
+}
+
 // Mostrar el contenido del directorio de archivos subidos
 function display_uploaded_files($path)
 {
@@ -33,11 +48,11 @@ function display_uploaded_files($path)
     if (file_exists($upload_directory) && is_dir($upload_directory)) {
         $files = scandir($upload_directory); // Obtener la lista de archivos en el directorio
         $permit_extensions = array( // Tipos de archivos permitidos
-            'pdf', 
+            'pdf',
             'png',
             'jpeg',
             'jpg',
-        );   
+        );
 
         // Mostrar la lista de archivos
         if ($files) {
