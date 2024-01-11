@@ -21,39 +21,42 @@ add_action('wp_ajax_nopriv_process_click', 'change_view');
 
 function RenderInterface()
 {
+    view_upload_form('pdf');
     display_folders();
+    display_uploaded_files('pdf'); 
 
-    function change_view()
-    {
+}
 
-        if (isset($_POST['value'])) {
+function change_view()
+{
 
-            $value_path = sanitize_text_field($_POST['value']);
-            echo $value_path;
+    if (isset($_POST['value'])) {
 
-            if ($value_path == 'oro'){
+        $value_path = sanitize_text_field($_POST['value']);
+        echo $value_path;
 
-                view_upload_form('oro');
-                display_uploaded_files('oro'); 
-            }
+        if ($value_path == 'oro'){
 
-            else if ($value_path == 'reloj'){
-
-                view_upload_form('pdf');
-                display_uploaded_files('pdf'); 
-            }
-
-            else if ($value_path == 'diamantes') {
-
-                view_upload_form('diamantes');
-                display_uploaded_files('diamantes'); 
-            }
-
-        } else {
-            echo 'No se recibió ningún valor. Vuelve a intentarlo';
+            view_upload_form('oro');
+            display_uploaded_files('oro'); 
         }
 
-        wp_die();
+        else if ($value_path == 'reloj'){
+
+            view_upload_form('pdf');
+            display_uploaded_files('pdf'); 
+        }
+
+        else if ($value_path == 'diamantes') {
+
+            view_upload_form('diamantes');
+            display_uploaded_files('diamantes'); 
+        }
+
+    } else {
+        echo 'No se recibió ningún valor. Vuelve a intentarlo';
     }
+
+    wp_die();
 }
 
