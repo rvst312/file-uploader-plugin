@@ -1,4 +1,5 @@
 <?php
+include_once(plugin_dir_path(__FILE__) . '../admin/views.php');
 // Función para procesar la carga de archivos
 add_action('admin_post_process_files', 'process_files');
 add_action('admin_post_nopriv_process_files', 'process_files');
