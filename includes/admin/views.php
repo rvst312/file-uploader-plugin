@@ -16,8 +16,8 @@ function add_menu_item()
 }
 
 add_action('admin_menu', 'add_menu_item');
-add_action('wp_ajax_process_click', 'change_view');
-add_action('wp_ajax_nopriv_process_click', 'change_view');
+//add_action('wp_ajax_process_click', 'change_view');
+//add_action('wp_ajax_nopriv_process_click', 'change_view');
 
 function render_interface()
 {
