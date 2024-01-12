@@ -21,22 +21,6 @@ function view_upload_form($path)
     <?php
 }
 
-function display_folders()
-{
-    ?>
-
-    <div style="display:flex">
-        <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="action" value="process_views">
-            <input class="dowload-button" type="submit" name="button" value="oro">
-            <input class="dowload-button" type="submit" name="button" value="reloj">
-            <input class="dowload-button" type="submit" name="button" value="diamantes">
-        </form>
-    </div>
-
-    <?php
-}
-
 // Mostrar el contenido del directorio de archivos subidos
 function display_uploaded_files($path)
 {

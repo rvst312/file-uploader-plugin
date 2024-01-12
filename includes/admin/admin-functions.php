@@ -52,9 +52,11 @@ function process_files()
             // Redirigir después del proceso
             wp_redirect($_SERVER['HTTP_REFERER']);
             exit;
+
         } else {
             echo "Por favor selecciona un archivo válido. Formatos permitidos: PDF, PNG, JPG, GIF, JPEG";
         }
+
     } else {
         echo 'Error: No corresponde una ruta a la vista';
     }
