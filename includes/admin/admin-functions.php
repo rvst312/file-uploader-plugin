@@ -3,7 +3,6 @@
 add_action('admin_post_process_files', 'process_files');
 add_action('admin_post_nopriv_process_files', 'process_files');
 
-
 function change_upload_directory($wp_upload, $path)
 {
     $wp_upload['subdir'] = '/' . $path . $wp_upload['subdir'];
@@ -63,7 +62,9 @@ function process_files()
 
 function process_views()
 {
-    $value_path = sanitize_text_field($_POST['button']);
-    return $value_path;
+    if (isset($_POST['button'])) {
+        $value_path = sanitize_text_field($_POST['button']);
+        return Render_interface($value_path);
+    }
 }
 

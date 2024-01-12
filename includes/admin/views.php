@@ -9,7 +9,7 @@ function add_menu_item()
         'Subir Exámenes',
         'edit_pages', //'manage_options'
         'formulario_carga_archivos',
-        'RenderInterface',
+        'Render_interface',
         'dashicons-upload',
         20
     );
@@ -19,14 +19,12 @@ add_action('admin_menu', 'add_menu_item');
 add_action('wp_ajax_process_click', 'change_view');
 add_action('wp_ajax_nopriv_process_click', 'change_view');
 
-function RenderInterface()
+function Render_interface($path)
 {
-    view_upload_form('pdf');
+    view_upload_form($path);
     display_folders();
-    display_uploaded_files('pdf'); 
-
+    display_uploaded_files($path); 
 }
-
 
 
 //function change_view()
