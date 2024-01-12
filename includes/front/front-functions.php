@@ -28,9 +28,9 @@ function display_folders()
     <div style="display:flex">
         <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post" enctype="multipart/form-data">
             <input type="hidden" name="action" value="process_views">
-            <input class="dowload-button" type="submit" name="button" value="ORO">
-            <input class="dowload-button" type="submit" name="button" value="RELOJ">
-            <input class="dowload-button" type="submit" name="button" value="DIAMANTES">
+            <input class="dowload-button" type="submit" name="button" value="oro">
+            <input class="dowload-button" type="submit" name="button" value="reloj">
+            <input class="dowload-button" type="submit" name="button" value="diamantes">
         </form>
     </div>
 
