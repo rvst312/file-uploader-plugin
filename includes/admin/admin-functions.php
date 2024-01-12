@@ -61,13 +61,13 @@ function process_files()
     }
 }
 
-function process_views()
-{
-    if (isset($_POST['button'])) {
-        $value_path = sanitize_text_field($_POST['button']);
-        render_interface($value_path);
-        wp_redirect($_SERVER['HTTP_REFERER']);
-        exit;
-    }
-}
+//function process_views()
+//{
+//    if (isset($_POST['button'])) {
+//        $value_path = sanitize_text_field($_POST['button']);
+//        render_interface($value_path);
+//        wp_redirect($_SERVER['HTTP_REFERER']);
+//        exit;
+//    }
+//}
 

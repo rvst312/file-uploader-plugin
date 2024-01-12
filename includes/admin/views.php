@@ -19,11 +19,11 @@ add_action('admin_menu', 'add_menu_item');
 add_action('wp_ajax_process_click', 'change_view');
 add_action('wp_ajax_nopriv_process_click', 'change_view');
 
-function render_interface($path)
+function render_interface()
 {
-    view_upload_form($path);
+    view_upload_form('pdf');
     display_folders();
-    display_uploaded_files($path); 
+    display_uploaded_files('pdf'); 
 }
 
 
