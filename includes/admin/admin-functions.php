@@ -65,7 +65,7 @@ function process_views()
 {
     if (isset($_POST['button'])) {
         $value_path = sanitize_text_field($_POST['button']);
-        return Render_interface($value_path);
+        render_interface($value_path);
     }
 }
 
