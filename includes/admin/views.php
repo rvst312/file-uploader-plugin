@@ -20,41 +20,5 @@ add_action('admin_menu', 'add_menu_item');
 function render_interface()
 {
     view_upload_form('pdf');
-    //display_folders();
     display_uploaded_files('pdf'); 
 }
-
-
-//function change_view()
-//{
-//
-//    if (isset($_POST['value'])) {
-//
-//        $value_path = sanitize_text_field($_POST['value']);
-//        echo $value_path;
-//
-//        if ($value_path == 'oro'){
-//
-//            view_upload_form('oro');
-//            display_uploaded_files('oro'); 
-//        }
-//
-//        else if ($value_path == 'reloj'){
-//
-//            view_upload_form('pdf');
-//            display_uploaded_files('pdf'); 
-//        }
-//
-//        else if ($value_path == 'diamantes') {
-//
-//            view_upload_form('diamantes');
-//            display_uploaded_files('diamantes'); 
-//        }
-//
-//    } else {
-//        echo 'No se recibió ningún valor. Vuelve a intentarlo';
-//    }
-//
-//    wp_die();
-//}
-
