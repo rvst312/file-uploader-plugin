@@ -22,7 +22,7 @@ add_action('wp_ajax_nopriv_process_click', 'change_view');
 function render_interface()
 {
     view_upload_form('pdf');
-    display_folders();
+    //display_folders();
     display_uploaded_files('pdf'); 
 }
 
