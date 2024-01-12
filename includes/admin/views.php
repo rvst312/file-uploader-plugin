@@ -9,7 +9,7 @@ function add_menu_item()
         'Subir Exámenes',
         'edit_pages', //'manage_options'
         'formulario_carga_archivos',
-        'Render_interface',
+        'render_interface',
         'dashicons-upload',
         20
     );
