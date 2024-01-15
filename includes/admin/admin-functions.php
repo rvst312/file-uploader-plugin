@@ -6,7 +6,7 @@ add_action('admin_post_nopriv_process_files', 'process_files');
 
 function change_upload_directory($wp_upload, $path)
 {
-    $wp_upload['subdir'] = '/' . $path . $wp_upload['subdir'];
+    $wp_upload['subdir'] = $path . $wp_upload['subdir'];
     $wp_upload['path'] = $wp_upload['basedir'] . $wp_upload['subdir'];
     $wp_upload['url'] = $wp_upload['baseurl'] . $wp_upload['subdir'];
     return $wp_upload;
