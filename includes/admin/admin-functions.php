@@ -4,9 +4,9 @@
 add_action('admin_post_process_files', 'process_files');
 add_action('admin_post_nopriv_process_files', 'process_files');
 
-function change_upload_directory($wp_upload, $path)
+function change_upload_directory($wp_upload, $new_path)
 {
-    $wp_upload['subdir'] = $path . $wp_upload['subdir'];
+    $wp_upload['subdir'] = $new_path . $wp_upload['subdir'];
     $wp_upload['path'] = $wp_upload['basedir'] . $wp_upload['subdir'];
     $wp_upload['url'] = $wp_upload['baseurl'] . $wp_upload['subdir'];
     return $wp_upload;
@@ -19,18 +19,11 @@ function process_files()
 
         $path = $_POST['ruta'];
 
-        //$upload_path = function ($wp_upload) use ($path) {
-        //    return change_upload_directory($wp_upload, $path);
-        //};
+        $upload_path = function ($wp_upload) use ($path) {
+            return change_upload_directory($wp_upload, $path);
+        };
 
-        add_filter('upload_dir', 'change_upload_directory'); //$upload_path
-
-        $upload_dir = wp_upload_dir();
-        $upload_overrides = array(
-            'test_form' => false,
-            'upload_dir' => $upload_dir['basedir'] . '/pdf',
-            'unique_filename_callback' => null
-        );
+        add_filter('upload_dir', $upload_path); 
 
         $uploadedfile = $_FILES['archivo'];
 
@@ -49,7 +42,7 @@ function process_files()
         // Verificar si la extensión del archivo está permitida
         if (in_array(strtolower($extension_archivo), $extensiones_permitidas)) {
             // Manejar la subida del archivo
-            $movefile = wp_handle_upload($uploadedfile, $upload_overrides); //$upload_path
+            $movefile = wp_handle_upload($uploadedfile, $upload_path); //$upload_path
 
             // Verificar si la subida fue exitosa
             if ($movefile && !isset($movefile['error'])) {
