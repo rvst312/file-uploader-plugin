@@ -24,6 +24,7 @@ function process_files()
         };
 
         add_filter('upload_dir', $upload_path);
+
         $uploadedfile = $_FILES['archivo'];
 
         // Obtener la extensión del archivo
@@ -41,7 +42,7 @@ function process_files()
         // Verificar si la extensión del archivo está permitida
         if (in_array(strtolower($extension_archivo), $extensiones_permitidas)) {
             // Manejar la subida del archivo
-            $movefile = wp_handle_upload($uploadedfile, $upload_path);
+            $movefile = wp_handle_upload($uploadedfile); //$upload_path
 
             // Verificar si la subida fue exitosa
             if ($movefile && !isset($movefile['error'])) {
