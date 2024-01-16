@@ -33,6 +33,8 @@
 // Definir funciones para renderizar vistas
 
 // Funciones para renderizar vistas
+
+// Funciones para renderizar vistas
 function render_interface() {
     ?>
     <div class="wrap">
@@ -74,7 +76,6 @@ function render_yet_another_view() {
 function change_view_callback() {
     $view = isset($_POST['view']) ? $_POST['view'] : 'default';
 
-    ob_start(); // Capturar la salida del buffer de salida
     switch ($view) {
         case 'another':
             render_another_view();
@@ -87,9 +88,7 @@ function change_view_callback() {
         default:
             render_interface();
     }
-    $output = ob_get_clean(); // Obtener y limpiar la salida del buffer
 
-    echo json_encode(array('content' => $output));
     wp_die();
 }
 
@@ -128,7 +127,7 @@ function enqueue_custom_script() {
                     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                     xhr.onreadystatechange = function () {
                         if (xhr.readyState === 4 && xhr.status === 200) {
-                            document.getElementById('dynamic-content').innerHTML = JSON.parse(xhr.responseText).content;
+                            document.getElementById('dynamic-content').innerHTML = xhr.responseText;
                         }
                     };
                     xhr.send('action=change_view&view=' + view);
