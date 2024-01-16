@@ -28,11 +28,16 @@
 //
 
 // Definir funciones para renderizar vistas
+
+
+// Definir funciones para renderizar vistas
 function render_interface() {
     ?>
-    <h2>Vista por Defecto</h2>
-    <button class="button change-view-button" data-view="another">Cambiar a Otra Vista</button>
-    <button class="button change-view-button" data-view="yet_another">Cambiar a Otra Vista Más</button>
+    <div class="wrap">
+        <h2>Vista por Defecto</h2>
+        <button class="button change-view-button" data-view="another">Cambiar a Otra Vista</button>
+        <button class="button change-view-button" data-view="yet_another">Cambiar a Otra Vista Más</button>
+    </div>
     <?php
     view_upload_form('pdf');
     display_uploaded_files('pdf'); 
@@ -40,9 +45,10 @@ function render_interface() {
 
 function render_another_view() {
     ?>
-    <h2>Vista por Defecto</h2>
-    <button class="button change-view-button" data-view="another">Cambiar a Otra Vista</button>
-    <button class="button change-view-button" data-view="yet_another">Cambiar a Otra Vista Más</button>
+    <div class="wrap">
+        <h2>Otra Vista</h2>
+        <button class="button change-view-button" data-view="default">Volver a Vista por Defecto</button>
+    </div>
     <?php
     view_upload_form('oro');
     display_uploaded_files('oro'); 
@@ -50,9 +56,10 @@ function render_another_view() {
 
 function render_yet_another_view() {
     ?>
-    <h2>Vista por Defecto</h2>
-    <button class="button change-view-button" data-view="another">Cambiar a Otra Vista</button>
-    <button class="button change-view-button" data-view="yet_another">Cambiar a Otra Vista Más</button>
+    <div class="wrap">
+        <h2>Otra Vista Más</h2>
+        <button class="button change-view-button" data-view="default">Volver a Vista por Defecto</button>
+    </div>
     <?php
     view_upload_form('pdf');
     display_uploaded_files('pdf'); 
@@ -99,7 +106,27 @@ function add_menu_item() {
 }
 
 function enqueue_custom_script() {
-    wp_enqueue_script('jquery'); // Asegurar que jQuery esté incluido
-    wp_enqueue_script('custom-script', plugin_dir_url(__FILE__) . '../js/scripts.js', array('jquery'), '1.0', true);
-    wp_localize_script('custom-script', 'admin_ajax_url', array('url' => admin_url('admin-ajax.php')));
+    ?>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var buttons = document.querySelectorAll('.change-view-button');
+
+            buttons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var view = this.getAttribute('data-view');
+
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('POST', '<?php echo admin_url('admin-ajax.php'); ?>', true);
+                    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            document.getElementById('adminmenumain').innerHTML = xhr.responseText;
+                        }
+                    };
+                    xhr.send('action=change_view&view=' + view);
+                });
+            });
+        });
+    </script>
+    <?php
 }
