@@ -35,42 +35,6 @@
 // Funciones para renderizar vistas
 
 // Funciones para renderizar vistas
-function render_interface() {
-    ?>
-    <div class="wrap">
-        <h2>Vista por Defecto</h2>
-        <button class="button change-view-button" data-view="another">Cambiar a Otra Vista</button>
-        <button class="button change-view-button" data-view="yet_another">Cambiar a Otra Vista Más</button>
-        <div id="dynamic-content">
-            <?php view_upload_form('pdf'); display_uploaded_files('pdf'); ?>
-        </div>
-    </div>
-    <?php
-}
-
-function render_another_view() {
-    ?>
-    <div class="wrap">
-        <h2>Otra Vista</h2>
-        <button class="button change-view-button" data-view="default">Volver a Vista por Defecto</button>
-        <div id="dynamic-content">
-            <?php view_upload_form('oro'); display_uploaded_files('oro'); ?>
-        </div>
-    </div>
-    <?php
-}
-
-function render_yet_another_view() {
-    ?>
-    <div class="wrap">
-        <h2>Otra Vista Más</h2>
-        <button class="button change-view-button" data-view="default">Volver a Vista por Defecto</button>
-        <div id="dynamic-content">
-            <?php view_upload_form('pdf'); display_uploaded_files('pdf'); ?>
-        </div>
-    </div>
-    <?php
-}
 
 // Función para cambiar la vista mediante AJAX
 function change_view_callback() {
@@ -78,15 +42,40 @@ function change_view_callback() {
 
     switch ($view) {
         case 'another':
-            render_another_view();
+            ?>
+            <div class="wrap">
+                <h2>Otra Vista</h2>
+                <button class="button change-view-button" data-view="default">Volver a Vista por Defecto</button>
+                <div id="dynamic-content">
+                    <?php view_upload_form('oro'); display_uploaded_files('oro'); ?>
+                </div>
+            </div>
+            <?php
             break;
 
         case 'yet_another':
-            render_yet_another_view();
+            ?>
+            <div class="wrap">
+                <h2>Otra Vista Más</h2>
+                <button class="button change-view-button" data-view="default">Volver a Vista por Defecto</button>
+                <div id="dynamic-content">
+                    <?php view_upload_form('pdf'); display_uploaded_files('pdf'); ?>
+                </div>
+            </div>
+            <?php
             break;
 
         default:
-            render_interface();
+            ?>
+            <div class="wrap">
+                <h2>Vista por Defecto</h2>
+                <button class="button change-view-button" data-view="another">Cambiar a Otra Vista</button>
+                <button class="button change-view-button" data-view="yet_another">Cambiar a Otra Vista Más</button>
+                <div id="dynamic-content">
+                    <?php view_upload_form('pdf'); display_uploaded_files('pdf'); ?>
+                </div>
+            </div>
+            <?php
     }
 
     wp_die();
@@ -137,3 +126,5 @@ function enqueue_custom_script() {
     </script>
     <?php
 }
+?>
+
