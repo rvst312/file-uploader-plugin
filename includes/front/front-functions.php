@@ -22,6 +22,7 @@ function view_upload_form($path)
 }
 
 function display_front() {
+
     ?>
     <div class="wrap">
         <button class="button change-view-button" data-param1="oro" data-param2="oro">ORO</button>
@@ -29,7 +30,7 @@ function display_front() {
         <button class="button change-view-button" data-param1="diamantes" data-param2="diamantes">DIAMANTES</button>
         <div id="dynamic-content">
             <?php
-            // Parámetros iniciales para la vista por defecto
+            // Cargamos dinámicamente el contenido
             $param1 = 'oro';
             $param2 = 'oro';
 
@@ -64,7 +65,6 @@ function display_front() {
     <?php
 }
 
-// Mostrar el contenido del directorio de archivos subidos
 function display_uploaded_files($path)
 {
     $upload_directory = wp_upload_dir()['basedir'] . '/' . $path;
