@@ -1,6 +1,6 @@
 <?php
 
-//include_once(plugin_dir_path(__FILE__) . '../front/front-functions.php');
+include_once(plugin_dir_path(__FILE__) . '../front/front-functions.php');
 //
 //function add_menu_item()
 //{
