@@ -8,7 +8,6 @@ function view_upload_form($path)
 {
     ?>
     <div class="wrap">
-        <h1>Subir Archivos</h1>
         <div class="form-wrapper">
             <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="action" value="process_files">
