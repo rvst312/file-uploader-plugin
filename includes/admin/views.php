@@ -37,45 +37,25 @@
 // Funciones para renderizar vistas
 
 // Función para cambiar la vista mediante AJAX
+
+// Función para cambiar la vista mediante AJAX
 function change_view_callback() {
     $view = isset($_POST['view']) ? $_POST['view'] : 'default';
 
     switch ($view) {
         case 'another':
-            ?>
-            <div class="wrap">
-                <h2>Otra Vista</h2>
-                <button class="button change-view-button" data-view="default">Volver a Vista por Defecto</button>
-                <div id="dynamic-content">
-                    <?php view_upload_form('oro'); display_uploaded_files('oro'); ?>
-                </div>
-            </div>
-            <?php
+            view_upload_form('oro');
+            display_uploaded_files('oro');
             break;
 
         case 'yet_another':
-            ?>
-            <div class="wrap">
-                <h2>Otra Vista Más</h2>
-                <button class="button change-view-button" data-view="default">Volver a Vista por Defecto</button>
-                <div id="dynamic-content">
-                    <?php view_upload_form('pdf'); display_uploaded_files('pdf'); ?>
-                </div>
-            </div>
-            <?php
+            view_upload_form('pdf');
+            display_uploaded_files('pdf');
             break;
 
         default:
-            ?>
-            <div class="wrap">
-                <h2>Vista por Defecto</h2>
-                <button class="button change-view-button" data-view="another">Cambiar a Otra Vista</button>
-                <button class="button change-view-button" data-view="yet_another">Cambiar a Otra Vista Más</button>
-                <div id="dynamic-content">
-                    <?php view_upload_form('pdf'); display_uploaded_files('pdf'); ?>
-                </div>
-            </div>
-            <?php
+            view_upload_form('pdf');
+            display_uploaded_files('pdf');
     }
 
     wp_die();
