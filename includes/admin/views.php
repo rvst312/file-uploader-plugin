@@ -108,22 +108,20 @@ function add_menu_item() {
 function enqueue_custom_script() {
     ?>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var buttons = document.querySelectorAll('.change-view-button');
+        jQuery(document).ready(function ($) {
+            $('.change-view-button').on('click', function () {
+                var view = $(this).data('view');
 
-            buttons.forEach(function (button) {
-                button.addEventListener('click', function () {
-                    var view = this.getAttribute('data-view');
-
-                    var xhr = new XMLHttpRequest();
-                    xhr.open('POST', '<?php echo admin_url('admin-ajax.php'); ?>', true);
-                    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                    xhr.onreadystatechange = function () {
-                        if (xhr.readyState === 4 && xhr.status === 200) {
-                            document.getElementById('adminmenumain').innerHTML = xhr.responseText;
-                        }
-                    };
-                    xhr.send('action=change_view&view=' + view);
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo admin_url('admin-ajax.php'); ?>',
+                    data: {
+                        action: 'change_view',
+                        view: view,
+                    },
+                    success: function (response) {
+                        $('#adminmenumain').html(response);
+                    },
                 });
             });
         });
