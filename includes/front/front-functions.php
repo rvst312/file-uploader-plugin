@@ -16,9 +16,6 @@ function view_upload_form($path)
                 <input type="file" name="archivo">
                 <input type="submit" value="Subir Archivo" class="post-file">
             </form>
-            <button id="changePathButton1" class="change-path-button">ORO</button>
-            <button id="changePathButton2" class="change-path-button">RELOJ</button>
-            <button id="changePathButton3" class="change-path-button">DIAMANTES</button>
         </div>
     </div>
     <?php
