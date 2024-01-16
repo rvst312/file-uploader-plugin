@@ -2,6 +2,8 @@
 
 include_once(plugin_dir_path(__FILE__) . '../admin/admin-functions.php');
 
+$param1 = 'oro';
+$param2 = 'oro';
 
 // Definimos funciones para imprimir cada elemento del front-end en el back-office
 function view_upload_form($path)
@@ -32,8 +34,8 @@ function display_front()
         <div id="dynamic-content">
             <?php
             // Cargamos dinámicamente el contenido
-            $param1 = 'oro';
-            $param2 = 'oro';
+            //$param1 = 'oro';
+            //$param2 = 'oro';
 
             view_upload_form($param1);
             display_uploaded_files($param2);
