@@ -100,6 +100,6 @@ function add_menu_item() {
 
 function enqueue_custom_script() {
     wp_enqueue_script('jquery'); // Asegurar que jQuery esté incluido
-    wp_enqueue_script('custom-script', plugin_dir_url(__FILE__) . '/assets/js/scripts.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('custom-script', plugin_dir_url(__FILE__) . '../js/scripts.js', array('jquery'), '1.0', true);
     wp_localize_script('custom-script', 'admin_ajax_url', array('url' => admin_url('admin-ajax.php')));
 }
