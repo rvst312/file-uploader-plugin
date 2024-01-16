@@ -20,10 +20,12 @@ function view_upload_form($path)
     <?php
 }
 
-function display_front() {
+function display_front()
+{
 
     ?>
     <div class="wrap">
+        <h1>Subir Archivos</h1>
         <button class="button change-view-button" data-param1="oro" data-param2="oro">ORO</button>
         <button class="button change-view-button" data-param1="reloj" data-param2="reloj">RELOJ</button>
         <button class="button change-view-button" data-param1="diamantes" data-param2="diamantes">DIAMANTES</button>
