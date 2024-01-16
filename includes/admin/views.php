@@ -31,13 +31,17 @@
 
 
 // Definir funciones para renderizar vistas
+
+// Funciones para renderizar vistas
 function render_interface() {
     ?>
     <div class="wrap">
         <h2>Vista por Defecto</h2>
         <button class="button change-view-button" data-view="another">Cambiar a Otra Vista</button>
         <button class="button change-view-button" data-view="yet_another">Cambiar a Otra Vista Más</button>
-        <?php view_upload_form('pdf'); display_uploaded_files('pdf'); ?>
+        <div id="dynamic-content">
+            <?php view_upload_form('pdf'); display_uploaded_files('pdf'); ?>
+        </div>
     </div>
     <?php
 }
@@ -47,10 +51,11 @@ function render_another_view() {
     <div class="wrap">
         <h2>Otra Vista</h2>
         <button class="button change-view-button" data-view="default">Volver a Vista por Defecto</button>
+        <div id="dynamic-content">
+            <?php view_upload_form('oro'); display_uploaded_files('oro'); ?>
+        </div>
     </div>
     <?php
-    view_upload_form('oro');
-    display_uploaded_files('oro'); 
 }
 
 function render_yet_another_view() {
@@ -58,16 +63,18 @@ function render_yet_another_view() {
     <div class="wrap">
         <h2>Otra Vista Más</h2>
         <button class="button change-view-button" data-view="default">Volver a Vista por Defecto</button>
+        <div id="dynamic-content">
+            <?php view_upload_form('pdf'); display_uploaded_files('pdf'); ?>
+        </div>
     </div>
     <?php
-    view_upload_form('pdf');
-    display_uploaded_files('pdf'); 
 }
 
 // Función para cambiar la vista mediante AJAX
 function change_view_callback() {
     $view = isset($_POST['view']) ? $_POST['view'] : 'default';
 
+    ob_start(); // Capturar la salida del buffer de salida
     switch ($view) {
         case 'another':
             render_another_view();
@@ -80,7 +87,9 @@ function change_view_callback() {
         default:
             render_interface();
     }
+    $output = ob_get_clean(); // Obtener y limpiar la salida del buffer
 
+    echo json_encode(array('content' => $output));
     wp_die();
 }
 
@@ -107,20 +116,22 @@ function add_menu_item() {
 function enqueue_custom_script() {
     ?>
     <script>
-        jQuery(document).ready(function ($) {
-            $('.change-view-button').on('click', function () {
-                var view = $(this).data('view');
+        document.addEventListener('DOMContentLoaded', function () {
+            var buttons = document.querySelectorAll('.change-view-button');
 
-                $.ajax({
-                    type: 'POST',
-                    url: '<?php echo admin_url('admin-ajax.php'); ?>',
-                    data: {
-                        action: 'change_view',
-                        view: view,
-                    },
-                    success: function (response) {
-                        $('#adminmenumain').html(response);
-                    },
+            buttons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var view = this.getAttribute('data-view');
+
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('POST', '<?php echo admin_url('admin-ajax.php'); ?>', true);
+                    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            document.getElementById('dynamic-content').innerHTML = JSON.parse(xhr.responseText).content;
+                        }
+                    };
+                    xhr.send('action=change_view&view=' + view);
                 });
             });
         });
