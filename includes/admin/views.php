@@ -39,8 +39,12 @@
 // Función para cambiar la vista mediante AJAX
 
 // Función para cambiar la vista mediante AJAX
+
+// Función para cambiar la vista mediante AJAX
 function change_view_callback() {
     $view = isset($_POST['view']) ? $_POST['view'] : 'default';
+
+    ob_start();
 
     switch ($view) {
         case 'another':
@@ -57,6 +61,9 @@ function change_view_callback() {
             view_upload_form('pdf');
             display_uploaded_files('pdf');
     }
+
+    $output = ob_get_clean();
+    echo $output;
 
     wp_die();
 }
@@ -86,19 +93,22 @@ function enqueue_custom_script() {
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var buttons = document.querySelectorAll('.change-view-button');
+            var dynamicContent = document.getElementById('dynamic-content');
 
             buttons.forEach(function (button) {
                 button.addEventListener('click', function () {
                     var view = this.getAttribute('data-view');
-
                     var xhr = new XMLHttpRequest();
+
                     xhr.open('POST', '<?php echo admin_url('admin-ajax.php'); ?>', true);
                     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
                     xhr.onreadystatechange = function () {
                         if (xhr.readyState === 4 && xhr.status === 200) {
-                            document.getElementById('dynamic-content').innerHTML = xhr.responseText;
+                            dynamicContent.innerHTML = xhr.responseText;
                         }
                     };
+
                     xhr.send('action=change_view&view=' + view);
                 });
             });
@@ -107,4 +117,3 @@ function enqueue_custom_script() {
     <?php
 }
 ?>
-
