@@ -36,6 +36,7 @@ function display_front()
             $param2 = 'oro';
 
             view_upload_form($param1);
+            echo 'Archivos subidos en: . $param1';
             display_uploaded_files($param2);
             ?>
         </div>
