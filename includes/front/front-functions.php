@@ -36,7 +36,6 @@ function display_front()
             $param2 = 'oro';
 
             view_upload_form($param1);
-            echo '<h2>Archivos subidos en: ' . $param1 . '</h2>';
             display_uploaded_files($param2);
             ?>
         </div>
@@ -72,6 +71,7 @@ function display_uploaded_files($path)
     $upload_directory = wp_upload_dir()['basedir'] . '/' . $path;
 
     echo '<div class="uploaded-files">';
+    echo '<h2>Archivos subidos en: ' . $param1 . '</h2>';
 
     // Verificar si el directorio existe
     if (file_exists($upload_directory) && is_dir($upload_directory)) {
