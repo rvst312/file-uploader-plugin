@@ -21,16 +21,20 @@ function view_upload_form($path)
     <?php
 }
 
-function display_folders() {
+function display_front() {
     ?>
     <div class="wrap">
         <button class="button change-view-button" data-param1="oro" data-param2="oro">ORO</button>
         <button class="button change-view-button" data-param1="reloj" data-param2="reloj">RELOJ</button>
         <button class="button change-view-button" data-param1="diamantes" data-param2="diamantes">DIAMANTES</button>
         <div id="dynamic-content">
-        <?php
+            <?php
+            // Parámetros iniciales para la vista por defecto
             $param1 = 'oro';
             $param2 = 'oro';
+
+            view_upload_form($param1);
+            display_uploaded_files($param2);
             ?>
         </div>
     </div>
