@@ -46,9 +46,9 @@ function render_interface()
     ?>
     <div class="wrap">
         <h2>Vista por Defecto</h2>
-        <button class="button change-view-button" data-param1="oro" data-param2="oro">Cambiar a Vista PDF</button>
-        <button class="button change-view-button" data-param1="reloj" data-param2="reloj">Cambiar a Vista Oro</button>
-        <button class="button change-view-button" data-param1="diamantes" data-param2="diamantes">Cambiar a Vista Mixta</button>
+        <button class="button change-view-button" data-param1="pdf" data-param2="pdf">ORO</button>
+        <button class="button change-view-button" data-param1="reloj" data-param2="reloj">RELOJ</button>
+        <button class="button change-view-button" data-param1="diamantes" data-param2="diamantes">DIAMANTES</button>
         <div id="dynamic-content">
             <?php
             // Parámetros iniciales para la vista por defecto
