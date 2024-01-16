@@ -1,36 +1,12 @@
 <?php
 
 include_once(plugin_dir_path(__FILE__) . '../front/front-functions.php');
-//
-//function add_menu_item()
-//{
-//    add_menu_page(
-//        'Subir Exámenes 2',
-//        'Subir Exámenes',
-//        'edit_pages', //'manage_options'
-//        'formulario_carga_archivos',
-//        'render_interface',
-//        'dashicons-upload',
-//        20
-//    );
-//}
-//
-//add_action('admin_menu', 'add_menu_item');
-//
-//function render_interface()
-//{
-//
-//    view_upload_form('pdf');
-//    display_uploaded_files('pdf'); 
-//
-//}
-
 
 function add_menu_item()
 {
     add_menu_page(
-        'Subir Exámenes 2',
-        'Subir Exámenes',
+        'File Uploader',
+        'Subir Archivos',
         'edit_pages', //'manage_options'
         'formulario_carga_archivos',
         'render_interface',
@@ -44,18 +20,18 @@ add_action('admin_menu', 'add_menu_item');
 function render_interface()
 {
     ?>
-    <div class="wrap">
-        <h2>Vista por Defecto</h2>
-        <button class="button change-view-button" data-param1="pdf" data-param2="pdf">ORO</button>
+    <!--<div class="wrap">
+        <button class="button change-view-button" data-param1="oro" data-param2="oro">ORO</button>
         <button class="button change-view-button" data-param1="reloj" data-param2="reloj">RELOJ</button>
         <button class="button change-view-button" data-param1="diamantes" data-param2="diamantes">DIAMANTES</button>
         <div id="dynamic-content">
             <?php
             // Parámetros iniciales para la vista por defecto
-            $param1 = 'pdf';
-            $param2 = 'pdf';
+            $param1 = 'oro';
+            $param2 = 'oro';
 
             view_upload_form($param1);
+            display_folders();
             display_uploaded_files($param2);
             ?>
         </div>
@@ -71,7 +47,7 @@ function render_interface()
                     var param2 = this.getAttribute('data-param2');
 
                     var xhr = new XMLHttpRequest();
-                    xhr.open('POST', '<?php echo admin_url('admin-ajax.php'); ?>', true);
+                    xhr.open('POST', '<?php// echo admin_url('admin-ajax.php'); ?>', true);
                     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                     xhr.onreadystatechange = function () {
                         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -82,13 +58,13 @@ function render_interface()
                 });
             });
         });
-    </script>
+    </script>-->
     <?php
 }
 
 function change_view_callback() {
-    $param1 = isset($_POST['param1']) ? $_POST['param1'] : 'pdf';
-    $param2 = isset($_POST['param2']) ? $_POST['param2'] : 'pdf';
+    $param1 = isset($_POST['param1']) ? $_POST['param1'] : 'oro'; // Default param value
+    $param2 = isset($_POST['param2']) ? $_POST['param2'] : 'oro';
 
     ob_start();
     view_upload_form($param1);
