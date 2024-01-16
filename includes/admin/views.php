@@ -19,8 +19,8 @@ add_action('admin_menu', 'add_menu_item');
 
 function render_interface()
 {
-    //$current_path = isset($_GET['path']) ? sanitize_text_field($_GET['path']) : '/pdf';
+    $current_path = isset($_GET['path']) ? sanitize_text_field($_GET['path']) : '/pdf';
 
-    view_upload_form('pdf');
-    display_uploaded_files('pdf'); 
+    view_upload_form($current_path);
+    display_uploaded_files($current_path); 
 }
