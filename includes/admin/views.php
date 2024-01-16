@@ -37,10 +37,9 @@ function render_interface() {
         <h2>Vista por Defecto</h2>
         <button class="button change-view-button" data-view="another">Cambiar a Otra Vista</button>
         <button class="button change-view-button" data-view="yet_another">Cambiar a Otra Vista Más</button>
+        <?php view_upload_form('pdf'); display_uploaded_files('pdf'); ?>
     </div>
     <?php
-    view_upload_form('pdf');
-    display_uploaded_files('pdf'); 
 }
 
 function render_another_view() {
