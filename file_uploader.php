@@ -22,17 +22,6 @@ function load_plugin_assets() {
     wp_enqueue_script('scripts', plugins_url('/assets/js/scripts.js', __FILE__), array(), '1.0', true);
 }
 add_action('admin_enqueue_scripts', 'load_plugin_assets');
-// Include styles and scripts 
-//function styles_admin() {
-//    wp_enqueue_style('styles', plugins_url('/assets/css/style.css', __FILE__), array(), '1.0', 'all');
-//}
-//add_action('admin_enqueue_scripts', 'styles_admin');
-//
-//function scripts_admin() {
-//    wp_enqueue_script('scripts', plugins_url('/assets/js/scripts.js', __FILE__), array(), '1.0', true);
-//}
-//add_action('admin_enqueue_scripts', 'scripts_admin');
-
 
 
 
