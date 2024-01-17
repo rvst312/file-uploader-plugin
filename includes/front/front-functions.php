@@ -95,7 +95,7 @@ function display_front()
             });
         });
     </script>
-    <style
+    <style>
         .button-active {
             background-color: #004e98;
             color: #fff;
