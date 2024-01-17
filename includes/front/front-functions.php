@@ -3,22 +3,6 @@
 include_once(plugin_dir_path(__FILE__) . '../admin/admin-functions.php');
 
 // Definimos funciones para imprimir cada elemento del front-end en el back-office
-function view_upload_form($path)
-{
-    ?>
-    <div class="wrap">
-        <div class="form-wrapper">
-            <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="action" value="process_files">
-                <input type="hidden" name="ruta" value="<?php echo esc_attr($path); ?>">
-                <input type="file" name="archivo">
-                <input type="submit" value="Subir Archivo" class="post-file">
-            </form>
-        </div>
-    </div>
-    <?php
-}
-
 function display_front()
 {
 
@@ -78,7 +62,6 @@ function display_front()
 
             buttons.forEach(function (button) {
                 button.addEventListener('click', function () {
-                    button.classList.toggle('button-active');
                     var param1 = this.getAttribute('data-param1');
                     var param2 = this.getAttribute('data-param2');
 
@@ -95,12 +78,22 @@ function display_front()
             });
         });
     </script>
-    <style>
-        .button-active {
-            background-color: #004e98;
-            color: #fff;
-        }
-    </style>
+    <?php
+}
+
+function view_upload_form($path)
+{
+    ?>
+    <div class="wrap">
+        <div class="form-wrapper">
+            <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="action" value="process_files">
+                <input type="hidden" name="ruta" value="<?php echo esc_attr($path); ?>">
+                <input type="file" name="archivo">
+                <input type="submit" value="Subir Archivo" class="post-file">
+            </form>
+        </div>
+    </div>
     <?php
 }
 
