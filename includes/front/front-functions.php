@@ -10,7 +10,7 @@ function display_front()
     <div class="wrap">
         <h1>Subir Archivos</h1>
         <div class="folder-wrapper" style="display:flex;gap:20px;">
-            <div class="folder">
+            <div class="folder" style="display:flex;flex-direction:column;">
                 <svg xmlns="http://www.w3.org/2000/svg" height="30" width="30"
                     viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                     <path
