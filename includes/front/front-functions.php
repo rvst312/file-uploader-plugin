@@ -78,6 +78,7 @@ function display_front()
 
             buttons.forEach(function (button) {
                 button.addEventListener('click', function () {
+                    button.style.backgroundColor = '#004e98'
                     var param1 = this.getAttribute('data-param1');
                     var param2 = this.getAttribute('data-param2');
 
