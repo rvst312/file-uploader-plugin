@@ -2,7 +2,6 @@
 
 include_once(plugin_dir_path(__FILE__) . '../admin/admin-functions.php');
 
-
 // Definimos funciones para imprimir cada elemento del front-end en el back-office
 function view_upload_form($path)
 {
@@ -101,7 +100,6 @@ function display_uploaded_files($path)
     $upload_directory = wp_upload_dir()['basedir'] . '/' . $path;
 
     echo '<div class="uploaded-files">';
-    echo '<h2>Archivos Subidos</h2>';
 
     // Verificar si el directorio existe
     if (file_exists($upload_directory) && is_dir($upload_directory)) {
