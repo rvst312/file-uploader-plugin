@@ -51,6 +51,10 @@
     padding:1px 15px;
     margin-left:5px;
 }
+.button-active{
+    background-color: #004e98;
+    color: #fff;
+}
 .dowload-button:hover{
     background-color:#f2f2f2;
 }
