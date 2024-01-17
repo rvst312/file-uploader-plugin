@@ -16,7 +16,7 @@ function display_front()
                     <path
                         d="M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z" />
                 </svg>
-                <button class="button change-view-button" data-param1="oro" data-param2="oro">
+                <button class="button change-view-button" data-param1="oro" data-param2="oro" style="border:none;background-color:transparent;">
                     ORO
                 </button>
             </div>
@@ -27,7 +27,7 @@ function display_front()
                     <path
                         d="M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z" />
                 </svg>
-                <button class="button change-view-button" data-param1="reloj" data-param2="reloj">
+                <button class="button change-view-button" data-param1="reloj" data-param2="reloj" style="border:none;background-color:transparent;">
                     RELOJ
                 </button>
             </div>
@@ -38,7 +38,7 @@ function display_front()
                     <path
                         d="M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z" />
                 </svg>
-                <button class="button change-view-button" data-param1="diamantes" data-param2="diamantes">
+                <button class="button change-view-button" data-param1="diamantes" data-param2="diamantes" style="border:none;background-color:transparent;">
                     DIAMANTES
                 </button>
             </div>
