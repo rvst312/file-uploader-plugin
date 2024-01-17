@@ -20,6 +20,7 @@ function styles_admin() {
     wp_enqueue_style('styles', plugins_url('/assets/css/style.css', __FILE__), array(), '1.0', 'all');
 }
 add_action('admin_enqueue_scripts', 'styles_admin');
+add_action('wp_enqueue_scripts', 'styles_admin');
 
 function scripts_admin() {
     wp_enqueue_script('scripts', plugins_url('/assets/js/scripts.js', __FILE__), array(), '1.0', true);
