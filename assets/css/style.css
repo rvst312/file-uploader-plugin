@@ -63,5 +63,8 @@
     flex-direction: column;
 }
 .button > .change-view-button{
-    
+    border: none;
+    padding: 20px 7px;
+    background-color: #d9d9d9;
+    color: #282828;
 }
