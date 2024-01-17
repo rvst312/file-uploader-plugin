@@ -78,7 +78,7 @@ function display_front()
 
             buttons.forEach(function (button) {
                 button.addEventListener('click', function () {
-                    button.classList.toggle('.button-active');
+                    button.classList.toggle('button-active');
                     var param1 = this.getAttribute('data-param1');
                     var param2 = this.getAttribute('data-param2');
 
