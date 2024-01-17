@@ -54,10 +54,6 @@
 .dowload-button:hover{
     background-color:#f2f2f2;
 }
-.folder-wrapper{
-    display: flex;
-    gap: 20px;
-}
 .folder{
     display: flex;
     flex-direction: column;
