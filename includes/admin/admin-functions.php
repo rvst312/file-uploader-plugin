@@ -29,7 +29,7 @@ function process_files()
         $upload_dir = wp_upload_dir();
         $upload_overrides = array(
             'test_form' => false,
-            'upload_dir' => $upload_dir['basedir'] . '/pdf', // . $year . '/0' . $month
+            'upload_dir' => $upload_dir['basedir'] . '/pdf',
             'unique_filename_callback' => null
         );
 
