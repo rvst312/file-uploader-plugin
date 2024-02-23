@@ -1,40 +1,50 @@
+# FILE UPLOADER
 
-FILE UPLOADER
-El File Uploader es un plugin diseñado para gestionar la subida de archivos dentro del núcleo de WordPress. Este plugin permite a los usuarios cargar archivos y almacenarlos en un subdirectorio específico dentro de la carpeta de 'uploads' en WordPress.
+File Uploader is a plugin designed to handle file uploads within the WordPress core. This plugin allows users to upload files and store them in a specific subdirectory within the 'uploads' folder in WordPress.
 
-Estructura de archivos
-El plugin sigue la siguiente estructura de archivos:
+## File Structure
 
-markdown
-Copy code
+The plugin follows the following file structure:
+```tree
 ├───assets
 │   ├───css
 │   └───js
 └───includes
     ├───admin
     └───front
-assets: Contiene los archivos CSS y JavaScript necesarios para el funcionamiento del plugin.
 
-css: Carpeta que almacena los archivos CSS.
-js: Carpeta que almacena los archivos JavaScript.
-includes: Contiene los archivos PHP necesarios para el funcionamiento del plugin.
+- **assets**: Contains CSS and JavaScript files necessary for the plugin's operation.
+  - **css**: Folder that stores CSS files.
+  - **js**: Folder that stores JavaScript files.
 
-admin: Carpeta que contiene los archivos PHP relacionados con la administración del plugin.
-front: Carpeta que contiene los archivos PHP relacionados con la parte frontal del sitio web.
-Instalación
-Descarga el archivo zip del plugin desde el repositorio.
-Ve a tu panel de administración de WordPress.
-Navega a la sección de "Plugins" y haz clic en "Añadir nuevo".
-Selecciona "Subir plugin" y elige el archivo zip que descargaste.
-Activa el plugin una vez que se haya completado la instalación.
-Uso
-Una vez instalado y activado el plugin, los usuarios podrán subir archivos desde la interfaz de carga proporcionada por el plugin. Los archivos se almacenarán en un subdirectorio específico dentro de la carpeta 'uploads' de WordPress.
+- **includes**: Contains PHP files necessary for the plugin's operation.
+  - **admin**: Folder containing PHP files related to plugin administration.
+  - **front**: Folder containing PHP files related to the front-end of the website.
 
-Contribución
-Si deseas contribuir al desarrollo de este plugin, siéntete libre de clonar el repositorio, realizar tus cambios y enviar un pull request. ¡Estamos abiertos a nuevas ideas y mejoras!
+## Installation
 
-Problemas y sugerencias
-Si encuentras algún problema o tienes alguna sugerencia para mejorar el plugin, por favor abre un issue en el repositorio. Estamos comprometidos a hacer de este plugin una herramienta aún mejor.
+1. Download the plugin's zip file from the repository.
+2. Go to your WordPress admin panel.
+3. Navigate to the "Plugins" section and click on "Add New".
+4. Select "Upload plugin" and choose the zip file you downloaded.
+5. Activate the plugin once the installation is complete.
 
-Licencia
-Este plugin se distribuye bajo la licencia GPLv2 o posterior. ¡Siéntete libre de usarlo y modificarlo según tus necesidades!
+## Usage
+
+Once installed and activated, users can upload files from the upload interface provided by the plugin. The files will be stored in a specific subdirectory within the 'uploads' folder in WordPress.
+
+## Contribution
+
+If you wish to contribute to the development of this plugin, feel free to clone the repository, make your changes, and send a pull request. We're open to new ideas and improvements!
+
+## Issues and Suggestions
+
+If you encounter any issues or have any suggestions for improving the plugin, please open an issue in the repository. We are committed to making this plugin an even better tool.
+
+## License
+
+This plugin is distributed under the [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html) license. Feel free to use and modify it according to your needs!
+
+---
+
+Thank you for using File Uploader! We hope it helps you manage file uploads on your WordPress site. If you have any questions or need assistance, feel free to contact us.
